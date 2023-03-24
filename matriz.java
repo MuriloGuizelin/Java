@@ -4,40 +4,23 @@ public class matriz {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
-		int m = sc.nextInt();
-		int n = sc.nextInt();
-		int[][] mat = new int[m][n];
-		
-		for (int i=0; i<mat.length; i++) {
-			for (int j=0; j<mat[i].length; j++) {
-				mat[i][j] = sc.nextInt();
+		int resultado;
+		int tamanho = scanner.nextInt();
+		int[][] matriz = new int[tamanho][tamanho];
+
+		for(int i=0; i < tamanho; i++){
+			for(int j=0; j < tamanho; j++){
+				matriz[i][j] = scanner.nextInt();
 			}
 		}
-		
-		int x = sc.nextInt();
-		
-		for (int i=0; i<mat.length; i++) {
-			for (int j=0; j<mat[i].length; j++) {
-				if (mat[i][j] == x) {
-					System.out.println("Position " + i + "," + j + ":");
-					if (j > 0) {
-						System.out.println("Left: " + mat[i][j-1]);
-					}
-					if (i > 0) {
-						System.out.println("Up: " + mat[i-1][j]);
-					}
-					if (j < mat[i].length-1) {
-						System.out.println("Right: " + mat[i][j+1]);
-					}
-					if (i < mat.length-1) {
-						System.out.println("Down: " + mat[i+1][j]);
-					}
-				}
-			}
+		System.out.println("Diagonal:");
+		for(int i=0; i < tamanho; i++){
+			resultado = matriz[i][i];
+			resultado = resultado * 2;
+			System.out.print(matriz[i][i] + " ");
 		}
-		
-		sc.close();
+		scanner.close();
 	}
 }
